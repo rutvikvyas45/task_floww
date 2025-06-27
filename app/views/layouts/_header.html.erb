@@ -1,0 +1,12 @@
+<header class="d-flex justify-content-between align-items-center px-4 py-3 border-bottom">
+  <%= link_to root_path, class: "d-flex align-items-center text-decoration-none" do %>
+    <%= image_tag "Preview-removebg-preview.png", alt:"Logo", height:"40" %>
+  <% end %>
+
+  <% unless current_user %>
+    <div>
+      <%= link_to "Login", new_user_session_path, class:"btn btn-lg btn-outline-primary me-2" %>
+      <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+    </div>
+  <% end %>
+</header>

@@ -1,0 +1,23 @@
+<%=binding.pry%>
+<% if @show_project_modal %>
+  <%= render 'add_project_card' %>
+<% else %>
+  <%= render 'top_navigation' %>
+
+  <div class="d-flex p-4 gap-3" style="overflow-x: auto;">
+    <% ["TO DO", "IN PROGRESS", "IN REVIEW", "DONE"].each do |status| %>
+      <div class="flex-shrink-0 bg-light p-3 rounded" style="width: 250px; min-height: 400px;">
+        <h6 class="text-muted"><%= status %></h6>
+
+        <% if status == "TO DO" %>
+          <div class="card text-center mt-4 p-3">
+            <img src="https://cdn-icons-png.flaticon.com/512/9197/9197579.png" alt="icon" style="height: 60px;" class="mx-auto mb-3" />
+            <strong>Get started in the backlog</strong>
+            <p class="text-muted small mb-2">Plan and start a sprint to see work here.</p>
+            <a href="/backlog" class="btn btn-outline-primary btn-sm">Go to Backlog</a>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,31 @@
+<div class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,0.5);" role="dialog">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content p-4" style="border-radius: 8px;">
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-5">
+
+        <!-- Left: Form -->
+        <div class="flex-grow-1">
+          <h4 class="mb-3">Name your first project</h4>
+          <p class="text-muted">Projects help your team track progress and manage tasks.</p>
+          
+          <%= form_with model: @project, url: projects_path, local: true, data: { turbo: false } do |f| %>
+            <div class="mb-3">
+              <%= f.label :name, "Project Name", class: "form-label" %>
+              <%= f.text_field :name, class: "form-control", placeholder: "e.g. My Scrum Project" %>
+            </div>
+            <div class="bg-light p-2 rounded mb-4 small text-muted">
+              Example project names: Team Astro, Bug Tracker, Redesign
+            </div>
+            <%= f.submit "Get started", class: "btn btn-primary px-4" %>
+          <% end %>
+        </div>
+
+        <!-- Right: Optional image -->
+        <div class="d-none d-md-block">
+          <%= image_tag "add-new-task.jpg", alt:"Image", style:"max-width: 300px; transform: rotate(-2deg);" %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

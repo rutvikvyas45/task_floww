@@ -1,0 +1,20 @@
+<div class="bg-light d-flex align-items-center justify-content-center vh-100">
+  <div class="card shadow p-4 rounded-4" style="width: 100%; max-width: 400px;">
+    <h2 class="text-center mb-4">Resend confirmation instructions</h2>
+
+    <%= form_with url: user_confirmation_path, method: :post, local: true, class: "needs-validation" do |form| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="mb-3">
+        <%= form.label :email, class: "form-label" %>
+        <%= form.email_field :email, class: "form-control", required: true, autofocus: true, autocomplete: "email",
+          value: resource.email %>
+      </div>
+
+      <div class="d-grid">
+        <%= form.submit "Resend confirmation instructions", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>
+
